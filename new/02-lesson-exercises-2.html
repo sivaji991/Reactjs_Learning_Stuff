@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function Title(){
+        return(
+          <>
+            <p>
+              Hello, welcome to my E-commerce
+            </p>
+          </>
+        )
+      }
+
+      function ProductDetails({name, price, discount, imageSrc}){
+        return(
+          // <div>
+            
+          //   <p>{name}</p>
+          //   {!discount && <p>Price:{price}</p>}
+          //   {discount && <p><del>Price:{price}</del></p>}
+          //   { discount && <p>Discount:{discount}</p>}
+          //   <button>Add to Cart</button>
+          // </div>
+
+          <div>
+            <img src={imageSrc} width="150"/>
+            <p>{name}</p>
+            {discount ? (
+              <div>
+                <p><del>Price:{price}</del></p>
+                <p>Discount:{discount}</p>
+              </div>
+            ):(
+              <p>Price:{price}</p>
+            )
+            }
+            <button>Add to Cart</button>
+          </div>
+        )
+      }
+
+      function App(){
+        return(
+          <>
+            <Title />
+            <ProductDetails 
+              name = "Cotton Socks"
+              price = "$9"
+              discount = "$2"
+              imageSrc = "/new/cotton-socks.png"
+            />
+            <ProductDetails 
+              name = "Tennis balls"
+              price = "$6"
+              imageSrc = "/new/tennis-balls.png"
+            />
+            <ProductDetails 
+              name = "Plain T-Shirt"
+              price = "$8"
+              discount = "$3"
+              imageSrc = "/new/plain-t-shirt.png"
+            />
+          </>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+
+    </script>
+  </body>
+</html>

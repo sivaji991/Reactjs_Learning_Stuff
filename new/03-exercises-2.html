@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+      function DisplayAsYouTypeApp(){
+        const [text,setText] = React.useState('');
+        function typeApp(event){
+          setText(event.target.value);
+        }
+        function reset(){
+          // text('');
+          setText('')
+        }
+        function example(){
+          setText('Hello Siva')
+        }
+        return(
+          <>
+            <input 
+            placeholder = "Type anything here" 
+            size = '20'
+            onChange = {typeApp}
+            value = {text}
+            />
+            <button onClick={reset}>
+              Reset
+            </button>
+            <button onClick={example}>
+              Example
+            </button>
+            <p>Text :: {text}</p>
+          </>
+        )
+      }
+
+      function App(){
+        return(
+          <>
+            <DisplayAsYouTypeApp />
+          </>
+        )
+      }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+What is Hooks?
+
+  Hooks are special functionns, that allow us to use state and other React feature in functional components.
+  Earlier, When we used to create react app using Functional component, then we didn't have access to the state management and lifecycle methods.
+  To access these feature we had to add class components.
+  So, this was the problem eith the functional component.
+  But after intoducing React Hooks from version 16.8, we can now use state management and other react features without writing class components.
+  
+  In other words, Hooksare the functions that make functional components work like class components.
+
+  Hooks made react functional components easy to use.
+
+  Developers prefer functional components over class components.
+
+  Benifits of React Hooks=>
+
+    React hooks simplify the code, improves the readability, reusability and overall performance of the application.
+
+----------------
+
+Most commonly used hooks are:
+  1.  useState
+  2.  useEffect
+  3.  useRef
+  4.  useMemo
+  5.  useCallback
+  6.  useContext
+  7.  useReducer
+  8.  useLayoutEffect
+  9.  custom hook
+
+  -------------
+
+1.  useState =>
+
+      useState is a react hook, which creates an 'state varriable'. Which helps us to track state in components & updates the user interface when state changes.
+
+2.  useEffect =>
+      useEffect hook allows you to perform side effects in your components.
+
+    Some examples of side effects are:
+    - Ferching the data from API
+    - Directly updating the DOM
+    - Timers like SetTimeOut and SetInterval
+
+3.  useRef =>
+      useRef is a react hook that allow us to create mutable variable which not re-render the component.
+
+      useRef is also used for accessing DOM elements.
+
+4.  useMemo =>
+      useMemo Hook returns a memoized value.
+      (it's like caching a value so that it doesn't need to be recalculated)
+
+      The useMemo hook only runs when one of its dependencies gets updated
+
+      This can improve the performance of the application. There is one more hook in react to improve performance, that is useCallback hook .
+
+      The useMemo and useCallback hooks are similar. The main difference is :
+        - useMemo returns a memoized value.
+        - useCallback returns a memoized function.
+
+
+5.  useCallback =>
+      It is React hook that lets you cache a function definition between re-renders.
+      it means, when we use the useCallback hook, it doesn't create multiple instance of same function when re-render happenss.
+
+      Instead of creating new instance of the function, it provides the cached function on re-render of the component.
+
+6.  useContext =>
+      It is a React hook that allows you to access data from any component without explicitly passing it down through props at every level. 
+
+      simply: 
+      useContext is used to manage Global data in the React APP.
+
+

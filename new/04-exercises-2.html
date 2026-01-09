@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+    <style>
+      body{
+        font-family: Arial;
+      }
+      .show-btn{
+        margin-left: 15px;
+        padding: 10px 15px;
+        border: none;
+        background-color: rgb(24, 251, 141);
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .email-input{
+        padding-inline-start: 10px;
+        padding: 10px 15px;
+        border-width: 1px;
+        border-radius: 10px;
+      }
+      .pass-input{
+        padding-inline-start: 10px;
+        padding: 10px 15px;
+        border-width: 1px;
+        border-radius: 10px;
+      }
+      .email-container{
+        margin-bottom: 10px;
+      }
+      .login-btn{
+        background-color: rgb(0,123,255);
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+      .signup-btn{
+        background-color: rgb(0,123,255);
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: none;
+        margin-left: 6px;
+        cursor: pointer;
+      }
+      .btns-container{
+        margin-top: 20px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App(){
+        return(
+          <div className='container'>
+            <p>Hello, Welcome to my website</p>
+            <div className='inputs-container'>
+              <div className='email-container'>
+                <input className='email-input' type='email' placeholder='Email' />
+              </div>
+              <div>
+                <input className='pass-input' type="password" placeholder='Password'/>
+                <button className='show-btn'>Show</button>
+              </div>
+            </div>
+            <div className='btns-container'>
+              <button className= 'login-btn'>Login</button>
+              <button className= 'signup-btn'>Sign up</button>
+            </div>
+          </div>
+        )
+      }
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+
+    </script>
+  </body>
+</html>

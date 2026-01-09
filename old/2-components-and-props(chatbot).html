@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      //We use PascalCase = each word start with a capital letter
+      function ChatInput() {
+        return (
+          //Fragment (<></>) = group elements together, wwwithout creating an extra <div>
+          <>
+            <input 
+              placeholder="Send a message to Chatbot" size="30"
+            />
+            <button>Send</button>
+          </>
+        ); 
+      }
+      //1:02:11
+
+      function ChatMessage({message,sender}) {
+        //the parameters inside the function which are declared in the {} are the another shortcut for the destructuring
+
+        // const message= props.message;
+        //const {message} = props; //This is the Destructuring
+        //props make our component reusable
+
+        // const sender = props.sender;
+        //const {sender} = props;//This is the Destructuring 
+
+        //Or we can the destructuring for many properties as below 
+        // const { message, sender } = props //this is the shortcut for the above lines
+
+        /*
+        if (sender === 'robot') {
+          return(
+            <div>
+              <img src="robot.png" alt="" width="50"/>
+              {message}
+            </div>
+          );
+        } 
+          */
+
+        return(
+          <div>
+            {sender === 'robot' && (
+              <img src="robot.png" alt="" width="50"/>
+            )}
+            {message}
+            {sender === 'user' && ( 
+              <img src="user.png" alt="" width="50"/>
+            )}
+          </div>
+        )
+      }
+
+      function App() {
+        return(
+            <>
+            <ChatInput />
+            <ChatMessage 
+              message="hello chatbot" 
+              sender="user" 
+            />
+            <ChatMessage 
+              message="Hello! How can I help you?" 
+              sender="robot"
+            />
+            <ChatMessage 
+              message="can you get me todays date?" 
+              sender="user"
+            />
+            <ChatMessage 
+              message="Today is November 14" 
+              sender="robot"
+            />
+          </>
+        );
+      }
+
+      //React lets us work on a small piece of the website at a time.
+
+
+      //State: It Makes our website interactive
+
+      const container1 = document.querySelector('.js-container');
+      ReactDOM.createRoot(container1).render(<App />);
+
+      /*
+       In this lesson :
+       1. Component = a piece of the website
+       2.Component = create our own HTML elements
+       3.Started the chatbot Project
+       4. Split the chatbot into <ChatInput> <ChatMessage> components
+        5. Props = Make components reusable
+        6. Destructuring , Guard Operator(&&)(which is basically like if statements)
+        7. Code Cleanup
+        8. We Created <App> component
+      */
+    </script>
+  </body>
+</html>
+
+
+
