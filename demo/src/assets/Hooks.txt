@@ -73,4 +73,14 @@ Most commonly used hooks are:
       simply: 
       useContext is used to manage Global data in the React APP.
 
+7.  useReducer =>
+      It is similar to useState, But Instead of providing state and setter function. It provides state and dispatch function
+
+      The useReducer hook accepts two arguments 
+          - Reducer function
+          - Initial state
+          and returns: Current state and dispatch method
+
+      The Reducer function is the function that specifies how the state gets updated
+
 

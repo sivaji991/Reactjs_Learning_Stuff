@@ -7,8 +7,8 @@ import ContextProvider from './components/ContextHook/ContextProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
-    <ContextProvider>
+    {/* <ContextProvider> */}
       <App />
-    </ContextProvider>
+    {/* </ContextProvider> */}
   </>,
 )

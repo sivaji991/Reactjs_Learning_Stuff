@@ -42,7 +42,15 @@ p {
 }
 button{
   border-radius: 7px;
+  border: none;
   cursor: pointer;
   background-color: rgb(210, 216, 222);
   padding: 10px 15px;
+  margin-bottom: 15px;
+}
+input {
+  padding: 6px 8px;
+  font-size: 1rem;
+  border: 1px solid #999;
+  border-radius: 4px;
 }
