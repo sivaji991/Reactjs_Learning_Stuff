@@ -85,8 +85,8 @@ Most commonly used hooks are:
 
 8.  useLayoutEffect =>
       It works similarly to useEffect, but it is called before the User interface gets mounted
-
-      It means useEffect gets called after printing the DOM elements.
+  
+        It means useEffect gets called after printing the DOM elements.
       but , useLayoutEffect gets called before printing the DOM elements.
 
 9.  Custom Hook =>
