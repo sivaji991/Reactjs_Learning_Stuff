@@ -1,0 +1,13 @@
+This whole project is fully ReactJS version setup of the Chatbot.html file 
+
+this whole project is a lesson while learning the ReactJS course.
+
+In this Lesson:
+  1.  Proper React setup (using command line, npm, and Vite)
+  2.  Command Line = give commands to our computer
+  3.  NPM = download and use external libraries (or packages)
+  4.  we learned create-vite Package = helps us create a proper react setup
+  5.  Moved our Chatbot Project into new React setup
+  6.  used ESLint = highlights problems in our JavaScript code
+  7.  JavaScript Modules = separate our code into different files
+  8.  Seperated each component into its own .jsx and .css files
