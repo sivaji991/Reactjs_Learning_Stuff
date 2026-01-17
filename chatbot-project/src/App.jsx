@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
+
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import ChatInput  from './components/ChatInput.jsx';
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+import  ChatMessages  from './components/ChatMessages.jsx';
+
+function App(){
+
+        const [chatMessages, setChatMessages] = useState([]);
+
+        // const [chatMessages, setChatMessages] = React.useState([{
+        //   message:'hello chatbot',
+        //   sender:'user',
+        //   id:'1'
+        // },
+        // {
+        //   message:'Hello! How can I help you?',
+        //   sender:'robot',
+        //   id:'2'
+        // },
+        // {
+        //   message:'todays date',
+        //   sender:'user',
+        //   id:'3'
+        // },
+        // {
+        //   message:'Today is December 27',
+        //   sender:'robot',
+        //   id:'4'
+        // }]);
+
+
+
+        //const chatMessages = array[0];    //The current data
+        //const setChatMessages = array[1];   //The Updater function
+
+        //const [chatMessages, setChatMessages] =array;   //Array Destructuring
+
+        
+
+        /*State = data that is connected to the HTML,
+          When we update this data, it will update the HTML.
+        */
+
+        return(
+          <div className='app-container'>
+            {chatMessages.length ===0 && (
+              <p className='welcome-container'>Welcome to the Chatbot Project! Send a message using the textbox below.</p>
+            )}
+            <ChatMessages 
+              chatMessages = {chatMessages}
+            />
+            <ChatInput 
+              chatMessages = {chatMessages}
+              setChatMessages = {setChatMessages}
+            />
+        </div>
+        )
+      }
 
 export default App
