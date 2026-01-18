@@ -1,10 +1,11 @@
 import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/user.png';
+import dayjs from 'dayjs';
 
 import './ChatMessage.css';
 
 
-function ChatMessage({ message,sender }){
+function ChatMessage({ message, sender, time }){
         // const message = props.message;
         // const sender = props.sender;
         // const { message, sender } = props;
@@ -32,6 +33,12 @@ function ChatMessage({ message,sender }){
             )}
             <div className='chat-message-text'>
               {message}
+               {/* The "time && (" check is optional. I added it just to be safe. */}
+        {time && (
+          <div className='chat-message-time'>
+            {dayjs(time).format('h:mma')}
+          </div>
+        )}
               </div>
             {
               sender === 'user' && (
