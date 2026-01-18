@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './App.css'
 
@@ -8,7 +8,7 @@ import  ChatMessages  from './components/ChatMessages.jsx';
 
 function App(){
 
-        const [chatMessages, setChatMessages] = useState([]);
+        const [chatMessages, setChatMessages] = useState( JSON.parse(localStorage.getItem('messages')) || []);
 
         // const [chatMessages, setChatMessages] = React.useState([{
         //   message:'hello chatbot',
@@ -43,6 +43,9 @@ function App(){
         /*State = data that is connected to the HTML,
           When we update this data, it will update the HTML.
         */
+       useEffect(() => {
+          localStorage.setItem('messages', JSON.stringify(chatMessages));
+        }, [chatMessages]);
 
         return(
           <div className='app-container'>
