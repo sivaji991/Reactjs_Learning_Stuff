@@ -212,20 +212,37 @@
         )
       }
 
-      function ChatMessages( { chatMessages } ){
+      /* function ChatMessages( { chatMessages } ){
 
         const chatMessagesRef = React.useRef(null);
+        
+        
+      //10-01-2026
+        // To use a function as a hook, the function name must
+        // start with "use".
+        function useAutoScroll(dependencies){
+          // It's highly recommend to rename this to something
+        // more generic like containerRef. This will make the
+        // code make more sense if we ever reuse this code in
+        // other components.
 
+        const containerRef = React.useRef(null);
         React.useEffect(()=>{
           const containerElem = chatMessagesRef.current
           if(containerElem){
             containerElem.scrollTop = containerElem.scrollHeight
           }
         }, [chatMessages]);
-        /*React will run this function -
-            -after component is created
-            -every time th component is updated
-            */
+        // React will run this function -
+        //     -after component is created
+        //     -every time th component is updated
+            
+          }, dependencies);
+
+          return containerRef;
+        }
+      
+
        
       return(
         <div className = 'chat-messages-container'
@@ -242,6 +259,50 @@
         </div>
       );
       }
+
+        */
+
+      // function ChatMessages({ chatMessages }) {
+      //   const chatMessagesRef = React.useRef(null);
+      // To use a function as a hook, the function name must
+      // start with "use".
+      function useAutoScroll(dependencies) {
+        // It's highly recommend to rename this to something
+        // more generic like containerRef. This will make the
+        // code make more sense if we ever reuse this code in
+        // other components.
+        const containerRef = React.useRef(null);
+
+        React.useEffect(() => {
+          // const containerElem = chatMessagesRef.current;
+          const containerElem = containerRef.current;
+          if (containerElem) {
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+        // }, [chatMessages]);
+        }, dependencies);
+
+        return containerRef;
+      }
+
+      function ChatMessages({ chatMessages }) {
+        const chatMessagesRef = useAutoScroll([chatMessages]);
+
+        return (
+          <div className="chat-messages-container" ref={chatMessagesRef}>
+            {chatMessages.map((chatMessage) => {
+              return (
+                <ChatMessage
+                  message={chatMessage.message}
+                  sender={chatMessage.sender}
+                  key={chatMessage.id}
+                />
+              );
+            })}
+          </div>
+        );
+      }
+
 
       function App(){
 
@@ -281,6 +342,7 @@
           When we update this data, it will update the HTML.
         */
 
+
         return(
           <div className='app-container'>
             {chatMessages.length ===0 && (
@@ -310,9 +372,9 @@
       7. Lifting the State Up = share state between components
       8. Made <ChatInput> interactive
       9. Got responses from the chatbot
-      */
+      
 
-    /*
+    
 
     In the 3rd Lesson:
     1.CSS with React
